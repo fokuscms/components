@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "fokuscms\\components\\": ""
+      "fokuscms\\Components\\": ""
     }
   }
 }
