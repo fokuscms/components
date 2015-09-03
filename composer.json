@@ -9,10 +9,6 @@
     "symfony/routing": "2.3.19",
     "symfony/http-kernel": "2.3.19",
     "illuminate/database": "4.2.16",
-    "illuminate/validation" : "4.2.*"
-  },
-  "require-dev": {
-    "panique/php-sass": "1.0"
   },
   "autoload": {
     "psr-4": {
