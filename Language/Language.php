@@ -12,6 +12,10 @@ namespace fokuscms\Components\Language;
 
 class Language {
 
+    /*
+     * path of the language files,
+     * expected with trailing slash
+     */
     private $location;
 
     public function __construct($location){
