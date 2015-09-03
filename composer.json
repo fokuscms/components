@@ -1,6 +1,7 @@
 {
   "name" : "fokuscms/components",
   "description" : "Components made to build Blackhound",
+  "version": "1.0",
   "require": {
     "php": ">=5.5.9",
     "symfony/class-loader": "2.3.19",
