@@ -63,6 +63,7 @@ class PhpEngine {
 
         ob_start();
         extract($this->parameter, EXTR_SKIP);
+        include 'helpers.php';
         include $this->templateFile;
         $template = ob_get_contents();
         ob_end_clean();
