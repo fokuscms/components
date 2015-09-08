@@ -1,8 +1,8 @@
 <?php
 
-/*
- * Rathes Sachchithananthan
- * 01/21, 2015
+/**
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
  */
 
 namespace fokuscms\Components\Helper;
@@ -11,10 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing;
 
-/*
- * This is the Helper class providing some functionality that make
- * developing much easier
- */
 class Helper {
 
     /**

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
+ */
 
 namespace fokuscms\Components\Routing;
 

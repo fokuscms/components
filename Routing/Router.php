@@ -1,10 +1,9 @@
 <?php
 /**
  *
- * 11/05, 2014
- * Rathes Sachchithananthan
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
  *
- * Class Router
  * This class should simplify the way Routes are
  * added to the RouteCollection
  *

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
+ */
 
 	namespace fokuscms\Components\Foundation;
 	
@@ -12,13 +16,21 @@
 		
 		protected $matcher;
 		protected $resolver;
-		
+
+        /**
+         * @param UrlMatcher $matcher
+         * @param ControllerResolver $resolver
+         */
 	    public function __construct (UrlMatcher $matcher,
 	    		ControllerResolver $resolver){
 	    	$this->matcher = $matcher;
     	    $this->resolver = $resolver;
 	    }
-	    
+
+        /**
+         * @param Request $request
+         * @return mixed|Response
+         */
 	    public function handle(Request $request){
 	    	try {
 	    		$request->attributes->add($this->matcher->match($request->getPathInfo()));

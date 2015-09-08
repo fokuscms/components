@@ -1,8 +1,8 @@
 <?php
 
-/*
- * @Rathes Sachchithananthan
- * 2013-03-04
+/**
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
  */
 
 namespace fokuscms\Components\View;
@@ -54,8 +54,6 @@ class View {
     }
 
     /**
-     * render()
-     *
      * @return Response
      */
     public function render(){

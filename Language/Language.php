@@ -1,11 +1,7 @@
 <?php
-/*
- * Rathes Sachchithananthan
- * 01/26, 2015
- *
- * This class is the translator class which does the translating
- * of content. This can be used in the backend as well as in the frontend
- * of fokus
+/**
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
  */
 
 namespace fokuscms\Components\Language;

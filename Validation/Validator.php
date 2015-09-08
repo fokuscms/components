@@ -1,9 +1,8 @@
 <?php
 /**
- * 02/22, 2015
- * Rathes Sachchithananthan
+ * @author Rathes Sachchithananthan <sachchi@rathes.de>
+ * @version 1.0.0
  *
- * class Validator
  * fks Validator in the style of Laravel Validation
  * but kept much more simpler than the original
  */
@@ -19,6 +18,10 @@ class Validator {
     private $fields;
     private $errors;
 
+    /**
+     * @param $fields
+     * @param $rules
+     */
     public function __construct($fields, $rules){
         $this->fields = $fields;
         $this->rules = $rules;
@@ -75,18 +78,22 @@ class Validator {
      * validates the fields against the rules and
      * returns true if validation passes and false
      * if validation fails
+     *
+     * @return bool
      */
     private function validate(){
 
-        // go through every rule and check
-        // if the fields fulfill every rule
+        # go through every rule and check
+        # if the fields fulfill every rule
         foreach ($this->rules as $key => $rule){
-            // first check if field with $key
-            // as key exists
+
+            # first check if field with $key
+            # as key exists
             if (!isset($this->fields[$key])){
                 $this->fields[$key] = '';
             }
-            // array of every rule of $field
+
+            # array of every rule of $field
             $rulesForField = explode('|', $rule);
             foreach($rulesForField as $ruleForField){
                 $ruleForField = explode(':', $ruleForField);
@@ -101,8 +108,8 @@ class Validator {
             }
         }
 
-        // if $error-array is still empty return true
-        // else return false
+        # if $error-array is still empty return true
+        # else return false
         if(empty($this->errors)){
             return true;
         } else {
@@ -131,6 +138,11 @@ class Validator {
      * private checkRule()
      * checks the field against the rule and
      * adds the violation to $errors
+     *
+     * @param $field
+     * @param $rule
+     * @param null $data
+     * @return bool
      */
     private function checkRule($field, $rule, $data = null){
         switch ($rule){
