@@ -49,7 +49,7 @@ if (!function_exists('lang')){
      */
     function lang($input){
         $request = Request::createFromGlobals();
-        $lang = new \fokuscms\Components\Language\Language( $request->getBasePath().'/content/lang');
+        $lang = new \fokuscms\Components\Language\Language( $request->getBasePath().'/content/lang/');
         return $lang->translate($input, 'de-DE');
     }
 }
