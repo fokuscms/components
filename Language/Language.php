@@ -92,7 +92,7 @@ class Language {
                 $aLangArray = &$aLangArray[$k];
             }
             if(isset($aLangArray)){
-                return$aLangArray;
+                return $aLangArray;
             }
         }
         return $input;
