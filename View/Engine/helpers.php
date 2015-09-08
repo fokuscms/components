@@ -6,6 +6,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing;
+use fokuscms\Components\Foundation\Application as App;
 
 if (!function_exists('base_path')){
     /**
@@ -14,22 +15,22 @@ if (!function_exists('base_path')){
      * @return string
      */
     function base_path(){
-        return Request::createFromGlobals()->getBasePath();
+        return App::getBasePath();
     }
 }
 
 
-if (!function_exists('route')){
+if (!function_exists('router')){
     /**
      * @param $route
      * @param array $param
      * @param string $routes
      * @return string
      */
-    function route($route, $param = [], $routes = ''){
+    function router($route, $param = [], $routes = ''){
         $request = Request::createFromGlobals();
         if($routes == ''){
-            $routes = $request->getBasePath().'/system/app/Http/routes.php';
+            $routes = include App::getBasePath().'/system/app/Http/routes.php';
         }
 
         $context = new Routing\RequestContext();
@@ -49,7 +50,7 @@ if (!function_exists('lang')){
      */
     function lang($input){
         $request = Request::createFromGlobals();
-        $lang = new \fokuscms\Components\Language\Language( $request->getBasePath().'/content/lang/');
+        $lang = new \fokuscms\Components\Language\Language( App::getBasePath().'/content/lang/');
         return $lang->translate($input, 'de-DE');
     }
 }
