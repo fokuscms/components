@@ -6,6 +6,7 @@
 
 namespace fokuscms\Components\Foundation;
 
+use fokuscms\Components\Config\Config;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
@@ -23,6 +24,8 @@ class Application {
     private $language = null;
     private $fallbackLanguage = null;
 
+    private $config = null;
+
     protected static $instance;
 
     /**
@@ -30,9 +33,10 @@ class Application {
      * @param ControllerResolver $resolver
      */
     public function __construct (UrlMatcher $matcher,
-                                 ControllerResolver $resolver){
+                                 ControllerResolver $resolver, $configPath){
         $this->matcher = $matcher;
         $this->resolver = $resolver;
+        $this->config = new Config($configPath);
     }
 
     /**
