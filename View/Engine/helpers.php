@@ -19,6 +19,15 @@ if (!function_exists('get_base_path')){
     }
 }
 
+if(!function_exists('get_base_url')){
+    /**
+     * @return mixed
+     */
+    function get_base_url(){
+        return App::getBaseUrl();
+    }
+}
+
 if (!function_exists('resource')){
     /**
      * @param string $str
