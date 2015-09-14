@@ -19,12 +19,12 @@ if (!function_exists('get_base_path')){
     }
 }
 
-if (!function_exists('get_content_path')){
+if (!function_exists('resource')){
     /**
      * @param string $str
      * @return string
      */
-    function get_content_path($str = ''){
+    function resource($str = ''){
         return App::getBaseUrl().'/content'.$str;
     }
 }
