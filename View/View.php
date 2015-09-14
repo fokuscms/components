@@ -7,6 +7,7 @@
 
 namespace fokuscms\Components\View;
 
+use fokuscms\Components\Foundation\Application;
 use fokuscms\Components\View\Engine\PhpEngine;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
@@ -29,19 +30,18 @@ class View {
     public function __construct($file, $parameter, $path, $engineName){
 
         # get engine from config
-        $config = include_once "/system/config/view.php";
-        $this->engine = $config['engine'];
+        $this->engine = Application::config('engine');
 
         # set engineName
         if ($engineName == null){
-            $this->engineName = $config['engineName'];
+            $this->engineName = Application::config('engine');
         } else {
             $this->engineName = $engineName;
         }
 
         # set file
         if ($path == null){
-            $this->path = $config['path'];
+            $this->path = Application::config('view_path');
         } else {
             $this->path = $path;
         }

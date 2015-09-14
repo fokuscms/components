@@ -31,6 +31,7 @@ class Application {
     /**
      * @param UrlMatcher $matcher
      * @param ControllerResolver $resolver
+     * @param $configPath
      */
     public function __construct (UrlMatcher $matcher,
                                  ControllerResolver $resolver, $configPath){
@@ -51,6 +52,14 @@ class Application {
      */
     public function setBasePath($path){
         $this->basePath = $path;
+    }
+
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public static function config($key){
+        return self::$instance->config->get($key);
     }
 
     /**
