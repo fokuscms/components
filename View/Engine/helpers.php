@@ -63,12 +63,15 @@ if (!function_exists('lang')){
     /**
      * translate the given input
      *
-     * @todo get the set language or fallback to fallback-language
      * @param $input
      * @return array
      */
     function lang($input){
+        $language = App::getLanguage();
+        if($language == '' || $language == null){
+            $language = App::getFallbackLanguage();
+        }
         $lang = new \fokuscms\Components\Language\Language( App::getBasePath().'/content/lang/');
-        return $lang->translate($input, 'de-DE');
+        return $lang->translate($input, $language);
     }
 }

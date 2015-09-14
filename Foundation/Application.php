@@ -20,6 +20,9 @@ class Application {
     private $basePath = '';
     private $baseUrl = '';
 
+    private $language = null;
+    private $fallbackLanguage = null;
+
     protected static $instance;
 
     /**
@@ -65,6 +68,36 @@ class Application {
      */
     public static function getBaseUrl(){
         return self::$instance->baseUrl;
+    }
+
+    /**
+     * @param null $fallbackLanguage
+     */
+    public function setFallbackLanguage($fallbackLanguage)
+    {
+        $this->fallbackLanguage = $fallbackLanguage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getFallbackLanguage(){
+        return self::$instance->fallbackLanguage;
+    }
+
+    /**
+     * @param null $language
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getLanguage(){
+        return self::$instance->language;
     }
 
     /**
