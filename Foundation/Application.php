@@ -101,9 +101,9 @@ class Application {
     /**
      * @param null $language
      */
-    public function setLanguage($language)
+    public static function setLanguage($language)
     {
-        $this->language = $language;
+        self::$instance->language = $language;
     }
 
     /**
