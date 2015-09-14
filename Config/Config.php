@@ -44,11 +44,12 @@ class Config {
      * returns null if $key is not found
      *
      * @param $key
+     * @param null $data
      * @return null
      */
     public function get($key, $data = null){
 
-        if ($data = null)
+        if ($data == null)
             $data = $this->data;
 
         if(isset($data[$key])){
