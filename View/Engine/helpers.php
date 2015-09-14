@@ -8,14 +8,24 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing;
 use fokuscms\Components\Foundation\Application as App;
 
-if (!function_exists('base_path')){
+if (!function_exists('get_base_path')){
     /**
      * return the base_path of the request
      *
      * @return string
      */
-    function base_path(){
+    function get_base_path(){
         return App::getBasePath();
+    }
+}
+
+if (!function_exists('get_content_path')){
+    /**
+     * @param string $str
+     * @return string
+     */
+    function get_content_path($str = ''){
+        return App::getBaseUrl().'/content'.$str;
     }
 }
 

@@ -18,6 +18,7 @@ class Application {
     protected $resolver;
 
     private $basePath = '';
+    private $baseUrl = '';
 
     protected static $instance;
 
@@ -50,6 +51,20 @@ class Application {
      */
     public static function getBasePath(){
         return self::$instance->basePath;
+    }
+
+    /**
+     * @param $url
+     */
+    public function setBaseUrl($url){
+        $this->baseUrl = $url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getBaseUrl(){
+        return self::$instance->baseUrl;
     }
 
     /**
