@@ -41,7 +41,7 @@ class View {
 
         # set file
         if ($path == null){
-            $this->path = Application::config('view_path');
+            $this->path = Application::getBasePath().Application::config('view_path');
         } else {
             $this->path = $path;
         }
