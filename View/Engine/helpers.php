@@ -31,10 +31,11 @@ if(!function_exists('get_base_url')){
 if (!function_exists('resource')){
     /**
      * @param string $str
+     * @param string $path
      * @return string
      */
-    function resource($str = ''){
-        return App::getBaseUrl().'/content'.$str;
+    function resource($str = '', $path = '/content'){
+        return App::getBaseUrl().$path.$str;
     }
 }
 
