@@ -7,6 +7,7 @@
 
 namespace fokuscms\Components\Updater;
 
+use Carbon\Carbon;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -50,6 +51,7 @@ class DatabaseUpdater
 
         # get all migrations that need to run
         $migrations = $this->getMigrationsToRun();
+        $timer = time();
 
         foreach($migrations as $migration)
         {
@@ -58,7 +60,7 @@ class DatabaseUpdater
             include_once $this->path.$migration.'.php';
             $migrationObject = new $class_name($this->connection);
 
-            if (method_exists($this, 'up'))
+            if (method_exists($migrationObject, 'up'))
             {
                 $migrationObject->up();
             }
@@ -73,7 +75,7 @@ class DatabaseUpdater
             $this->connection->table('migrations')->insert([
                 [
                     'migration' => $migration,
-                    'timestamp' => time()
+                    'timestamp' => $timer
                 ]
             ]);
 
@@ -89,7 +91,7 @@ class DatabaseUpdater
         $this->connection->schema()->create('migrations', function(Blueprint $table){
             $table->increments('id');
             $table->string('migration');
-            $table->timestamp('timestamp');
+            $table->bigInteger('timestamp');
         });
 
     }
@@ -107,7 +109,7 @@ class DatabaseUpdater
 
         if (empty($this->migrations)) return null;
         if(!$this->connection->schema()->hasTable('migrations')) return $this->migrations;
-        return array_diff($this->migrations, $this->connection->table('migrations')->get(['migration']));
+        return array_diff($this->migrations, $this->connection->table('migrations')->lists('migration'));
 
     }
 
