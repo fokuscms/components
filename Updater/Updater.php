@@ -8,24 +8,31 @@
 namespace fokuscms\Components\Updater;
 
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class Updater
 {
 
     private $src;
     private $dest;
 
+    private $connection;
+
     /**
      * Updater constructor
      *
      * @param $uri
      * @param $to
+     * @param Capsule $connection
      * @param bool|true $zip
      * @throws \Exception
      */
-    public function __construct($uri, $to, $zip = true) {
+    public function __construct($uri, $to, Capsule $connection, $zip = true) {
 
         $this->src = $uri;
         $filename = basename($uri);
+
+        $this->connection = $connection;
 
 
 
@@ -98,14 +105,9 @@ class Updater
      * @param $migration__file
      * @param $migration__className
      */
-    public function updateDatabase($migration__file, $migration__className){
-
-        include_once $migration__file;
-        $dbUpdater = new $migration__className;
-
-        $dbUpdater->migrate();
-
-
+    public function updateDatabase($migration__file, $migration__className)
+    {
+        // @Todo rewrite the update mechanism
     }
 
 }
